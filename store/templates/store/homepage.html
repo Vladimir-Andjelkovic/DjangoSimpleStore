@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'products/css/product_card.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/homepage.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="featured-products">
+        {% for product in featured_products %}
+            {% include 'products/product_card.html' with product=product %}
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+<header>
+    <nav>
+        <div class="nav-options">
+            <a class="nav-home" href="{% url 'homepage' %}">HOME</a>
+            <a class="nav-products" href="#">PRODUCTS</a>
+        </div>
+        <div class="account-options">
+            <a class="nav-cart" href="{% url 'cart' %}">CART</a>
+            {% if user.is_authenticated %}
+                <form class="nav-logout" action="{% url 'logout' %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit">LOGOUT</button>
+                </form>
+            {% else %}
+                <a class="nav-register" href="{% url 'register' %}">REGISTER</a>
+                <a class="nav-login" href="{% url 'login' %}">LOGIN</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>

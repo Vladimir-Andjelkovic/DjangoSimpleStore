@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'products/css/product_display_page.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="pdp-content">
+        <div class="product-image">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" width="400">
+            {% else %}
+                <p>Image not available</p>
+            {% endif %}
+        </div>
+        <div class="product-details">
+            <div class="product-info">
+                <p class="product-name">{{ product.name }}</p>
+                <p class="product-long-description">Description: {{ product.description }}</p>
+                <p class="product-price">Price: ${{ product.price }}</p>
+                {% if product.stock > 0 %}
+                    <p class="product-stock">In Stock</p>
+                {% else %}
+                    <p class="product-stock">Out of Stock</p>
+                {% endif %}
+
+            </div>
+            <div class="product-buy-options">
+                <form action="{% url 'add_to_cart' product_id=product.id %}" method="POST">
+                    {% csrf_token %}
+                    {% if product.stock > 0 %}
+                        <button type="submit">Add To Cart</button>
+                    {% else %}
+                        <button type="button" disabled>Add To Cart</button>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

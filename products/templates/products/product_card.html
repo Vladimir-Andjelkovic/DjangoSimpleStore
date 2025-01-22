@@ -1,0 +1,19 @@
+<div class="product-card" id="{{ product.id }}">
+    <a href="{% url 'pdp' product_id=product.id %}">
+        <div class="product-card-inner">
+            <div class="product-image">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" width="150">
+                {% else %}
+                    <p>Image not available</p>
+                {% endif %}
+            </div>
+            <div class="product-info">
+                <p class="product-name">{{ product.name }}</p>
+                <p class="product-price">Price: ${{ product.price }}</p>
+                <p class="product-description">Description: {{ product.short_description }}</p>
+            </div>
+        </div>
+    </a>
+
+</div>

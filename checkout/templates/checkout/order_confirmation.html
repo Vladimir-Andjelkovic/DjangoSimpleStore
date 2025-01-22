@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'checkout/css/order_confirmation.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="order">
+        <h2>Thank you for you purchase.</h2>
+        <div class="order-details">
+            <h3>Order Details:</h3>
+            <p>Full Name: {{ order.name }}</p>
+            <p>Email: {{ order.email }}</p>
+            <p>Address: {{ order.address }}</p>
+            <div class="ordered-items">
+                {% for item in order.order_items.all %}
+                    <p>{{ item.product.name }} x {{ item.quantity }} = ${{ item.total_price }}</p>
+                {% endfor %}
+            </div>
+            <div class="total">
+                <p>Order Total: ${{ order.total_price }}</p>
+            </div>
+        </div>
+        <div class="navigation-options">
+            <form action="{% url 'homepage' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Continue Shopping</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

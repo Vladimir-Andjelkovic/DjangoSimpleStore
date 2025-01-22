@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="cart">
+        <div class="cart-inner">
+            <div class="cart-items">
+                {% for cart_item in cart.cart_items.all %}
+                    {% include 'cart/cart_item.html' with cart_item=cart_item%}
+                {% endfor %}
+            </div>
+
+            <div class="total">
+                <p>Total Items: {{ cart.total_items }}</p>
+                <p><strong>TOTAL: ${{ cart.total_price }}</strong></p>
+            </div>
+        </div>
+        <div class="checkout-navigation">
+            <a href="{% url 'checkout' cart_id=cart.id %}">Proceed To Checkout</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,75 @@
+header {
+    background-color: #333;
+    padding: 10px 0;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-options {
+    display: flex;
+    align-items: center;
+}
+
+.nav-options a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.nav-options a:hover {
+    text-decoration: underline;
+}
+
+.account-options {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.account-options a,
+.account-options form {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.account-options a:hover {
+    text-decoration: underline;
+}
+
+.nav-cart {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-cart:hover {
+    text-decoration: underline;
+}
+
+.nav-logout button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav-logout button:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav a {
+        margin: 5px 0;
+    }
+}

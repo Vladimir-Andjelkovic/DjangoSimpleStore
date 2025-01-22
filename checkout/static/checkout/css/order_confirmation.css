@@ -1,0 +1,85 @@
+.order {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.order h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.order h3 {
+    color: #555;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.order-details {
+    margin-top: 15px;
+    text-align: left;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.ordered-items p {
+    margin: 5px 0;
+    font-size: 15px;
+    color: #666;
+}
+
+.total {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+}
+
+.navigation-options {
+    margin-top: 20px;
+}
+
+.navigation-options button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navigation-options button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .order {
+        padding: 15px;
+    }
+
+    .order h2, .order h3 {
+        font-size: 20px;
+    }
+
+    .order-details {
+        font-size: 14px;
+    }
+
+    .navigation-options button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
